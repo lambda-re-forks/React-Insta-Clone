@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./SASS/index.scss";
 import dummyData from "./dummy-data";
 
