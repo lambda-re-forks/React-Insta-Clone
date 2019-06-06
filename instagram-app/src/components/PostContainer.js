@@ -6,15 +6,9 @@ const PostContainer = props => {
     <article className="post">
       <header>
         <div className="post-user">
-          <div className="post-user-avatar">
-            <img
-              src="https://www.laravelnigeria.com/img/chris.jpg"
-              alt="Chris"
-            />
-          </div>
-          <div className="post-user-nickname">
-            <span>Chris</span>
-          </div>
+          <img src={imageUrl} alt={`${username} avatar`} />
+
+          <p>{username}</p>
         </div>
       </header>
       <div className="post-image">
