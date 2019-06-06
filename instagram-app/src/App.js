@@ -14,8 +14,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 // COMPONENTS
-import Searchbar from "./components/Searchbar";
-import PostContainer from "./components/PostContainer";
+import PostsPage from "./components/PostsPage";
+import Login from "./components/Login";
+// AUTH
+import withAuthenticate from "./authentication/withAuthenticate";
 // STYLES and DATA
 import "./SASS/index.scss";
 import dummyData from "./dummy-data";
@@ -54,24 +56,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header>
-          <Searchbar
-            search={this.search}
-            searchValue={this.state.searchValue}
-          />
-        </header>
-        <main>
-          {this.state.filtered.length === 0
-            ? this.state.data.map(data => (
-                <PostContainer {...data} key={data.id} />
-              ))
-            : this.state.filtered.map(data => (
-                <PostContainer {...data} key={data.id} />
-              ))}
-        </main>
+        <ComponentWithAuth />
       </div>
     );
   }
 }
+
+const ComponentWithAuth = withAuthenticate(PostsPage)(Login);
 
 export default App;

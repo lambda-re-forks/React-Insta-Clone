@@ -8,18 +8,9 @@ const PostContainer = props => {
   const { username, imageUrl, id, comments, likes, thumbnailUrl } = props;
   return (
     <article className="post">
-<<<<<<< HEAD
-      <header>
-        <div className="post-user">
-          <img src={imageUrl} alt={`${username} avatar`} />
-
-          <p>{username}</p>
-        </div>
-=======
       <header className="post-user">
         <img src={thumbnailUrl} alt={`${username} avatar`} />
         <p>{username}</p>
->>>>>>> 50b1689280982528154931cff331daaa095a596c
       </header>
       <section className="post-content">
         <img alt="Post Content" src={imageUrl} />
