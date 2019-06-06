@@ -1,35 +1,33 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+import CommentSection from "./CommentSection";
 
 const PostContainer = props => {
-  const { username, imageUrl, id, comments, likes } = props;
+  // console.log(props);
+  const { username, imageUrl, id, comments, likes, thumbnailUrl } = props;
   return (
     <article className="post">
-      <header>
-        <div className="post-user">
-          <div className="post-user-avatar">
-            <img
-              src="https://www.laravelnigeria.com/img/chris.jpg"
-              alt="Chris"
-            />
-          </div>
-          <div className="post-user-nickname">
-            <span>Chris</span>
-          </div>
-        </div>
+      <header className="post-user">
+        <img src={thumbnailUrl} alt={`${username} avatar`} />
+        <p>{username}</p>
       </header>
-      <div className="post-image">
-        <div className="post-image-bg">
-          <img
-            alt="Icon Living"
-            src="https://pbs.twimg.com/media/DOXI0IEXkAAkokm.jpg"
-          />
+      <section className="post-content">
+        <img alt="Post Content" src={imageUrl} />
+
+        <div className="comments">
+          <CommentSection comments={comments} likes={likes} />
         </div>
-      </div>
-      <div className="post-caption">
-        <strong>Chris</strong> Moving the community!
-      </div>
+      </section>
     </article>
   );
+};
+
+PostContainer.propTypes = {
+  imageUrl: PropTypes.string.isRequired,
+  thumbnailUrl: PropTypes.string.isRequired,
+  timestamp: PropTypes.string.isRequired,
+  comments: PropTypes.array.isRequired
 };
 
 export default PostContainer;
